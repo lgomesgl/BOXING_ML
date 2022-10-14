@@ -1,34 +1,37 @@
-# readme.md
-# You can build two different models:
-1)A model that looks at the match data and 
-decides who wins (acts as judges)
+# # BOXING_ML -- **EDA, Visualization and ML**
 
-2)If there is an upcoming match we'll want 
-a model that looks at both fighter's data as 
-well as their previous matches and predicts the winner
+Have 2 datasets:
+- data_fighters.csv 
+- data_popular_matches.csv
 
-## data_fighters.py
-# columns:
-    -stance: Orthodox - right base
-             Southpaw - left base
-    -reach: how fair the arms go.
+The idea is take the names of the oponnents from data_popular_matches
+and search the names in data_fighters and get the atributtes to put in
+data_popular_matches. So we have a full DATA with all parameters. After this, use
+the full DATA to predict the winner.
 
-# DO IT!
-    -work with the columns age, height, reach OK!
-    -function data_fighters OK!
-        -input:name
-        -output:wins,looses,draws,ko_rate,stance,age,height,reach,country
+The models used were: RidgeCV, XGBClassifier & RandomForestClassifier
 
-        -apply the outputs in data_popular_matches 
+- Model: RidgeCV
 
-## data_popular_matches.py
-# columns: 
-    -work in the DATA, visualization the DATA OK!
-    -cleaning the data['verdict'] to take the winner name and its a KO fight.
-    -the column 'verdict' just give the last name of the winner, see if i need to take the last name in the columns 'opponents_1' and 'opponents_2'
+    Train score: 0.4993499841506367
 
-# function:
-    -take the names of the opponents and take from the data_fighters news columns. OK!
+    Test score: 0.18112196897276422
 
-## main.py
+    Error(MSE): 0.33745824341008956
+
+- Model: XGBClassifier
+
+    Train score: 0.8867924528301887
+    
+    Test score: 0.7608695652173914
+    
+    Accuracy: 0.7608695652173914
+    
+- Model: RandomForestClassifier
+
+    Train score: 0.8301886792452831
+    
+    Test score: 0.7391304347826086
+    
+    Accuracy: 0.7391304347826086
 
